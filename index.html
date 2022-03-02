@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
 	<meta charset="UTF-8">
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,7 +8,7 @@
 	</style>
 	<script>
 	</script>
-	<body>
+	<body id="body">
 		<main>
 			<img id="front_logo" src="img/logo.png">
 			<div id="searcharea">
@@ -36,4 +36,15 @@
 			<img id="explore_arrow" src="img/double_arrow_down_48dp.svg">
 		</footer>
 	</body>
+	<script>
+		function map(input, input_start, input_end, output_start, output_end) {
+			return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
+		}
+		window.addEventListener("scroll", event => {
+			pos = document.getElementById("html").scrollTop;
+			document.getElementById("explore_text").style.marginBottom = map(pos, 0, 1000, 0, 50) + "px";
+			document.getElementById("explore_arrow").style.marginBottom = map(pos, 0, 1000, 0, 100) + "px";
+		}, { passive: true });
+
+	</script>
 </html>
