@@ -9,6 +9,8 @@
 	<script>
 	</script>
 	<body id="body">
+		<span id="cover_u"></span>
+		<span id="cover_d"></span>
 		<main>
 			<img id="front_logo" src="img/logo.png">
 			<div id="searcharea">
@@ -33,7 +35,11 @@
 		</main>
 		<footer>
 			<h1 id="explore_text">Explore!</h1>
-			<img id="explore_arrow" src="img/double_arrow_down_48dp.svg">
+			<span id="arrow_container">
+				<img src="img/arrow_down_48dp.svg">
+				<img src="img/arrow_down_48dp.svg">
+				<img src="img/arrow_down_48dp.svg">
+			</span>
 		</footer>
 	</body>
 	<script>
@@ -42,8 +48,11 @@
 		}
 		window.addEventListener("scroll", event => {
 			pos = document.getElementById("html").scrollTop;
-			document.getElementById("explore_text").style.marginBottom = map(pos, 0, 1000, 0, 50) + "px";
-			document.getElementById("explore_arrow").style.marginBottom = map(pos, 0, 1000, 0, 100) + "px";
+			cover_u = document.getElementById("cover_u");
+			cover_d = document.getElementById("cover_d");
+			body = document.getElementById("body");
+			cover_u.style.bottom = cover_u.offsetHeight - map(pos, 0, body.offsetHeight/2, 0, cover_u.offsetHeight) + "px";
+			cover_d.style.top = cover_d.offsetHeight - map(pos, 0, body.offsetHeight/2, 0, cover_d.offsetHeight) + "px";
 		}, { passive: true });
 
 	</script>

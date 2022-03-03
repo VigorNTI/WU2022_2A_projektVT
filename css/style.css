@@ -7,6 +7,24 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+#cover_u {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+	background: rgb(255,255,255);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+	bottom: 100vh;
+}
+#cover_d {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+	background: rgb(255,255,255);
+	background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+	top: 100vh;
+}
 main {
 	position: fixed;
 	top: 0;
@@ -73,4 +91,19 @@ footer {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+/* Following is for the keyframing and animations */
+/* The animation code */
+@keyframes floating{
+	from {height: 20%}
+	50% {height: 25%;}
+	to {height: 20%;}
+}
+
+footer {
+	animation-name: floating;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
 }
