@@ -1,29 +1,21 @@
 * {
 	margin: 0;
+	font-family: Inter, Helvetica, sans-serif;
 }
 body {
 	width: 100%;
-	height: 200vh;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
-#cover_u {
+#cover {
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
 	z-index: 2;
 	background: rgb(255,255,255);
-	background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-	bottom: 100vh;
-}
-#cover_d {
-	position: fixed;
-	width: 100vw;
-	height: 100vh;
-	z-index: 2;
-	background: rgb(255,255,255);
-	background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-	top: 100vh;
+	/* background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%); */
+	right: 100vw;
 }
 main {
 	position: fixed;
@@ -33,6 +25,10 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-image: url("../img/background.jpeg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 #front_logo {
 	margin-top: 20%;
@@ -49,6 +45,7 @@ main {
 	align-items: center;
 	border: 2px solid black;
 	padding: 1px;
+	background: white;
 }
 #searchbar_container {
 	height: 100%;
@@ -61,6 +58,7 @@ main {
 	height: 100%;
 	border: 2px solid black !important;
 	outline: none !important;
+	padding-left: 1rem;
 }
 @media only screen and (min-width: 540px) {
 	#searchbar {
@@ -76,10 +74,19 @@ main {
 	align-items: start;
 }
 #search_hints > *:first-child {
-	color: #aaa;
+	color: white;
+}
+#search_hints > *:not(:first-child) {
+	display: block;
+	background: white;
+	border-radius: 3px;
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
 }
 #search_hints > * {
   margin: 6px;
+  padding: 4px;
 }
 footer {
 	width: 100%;
@@ -90,20 +97,36 @@ footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: end;
+}
+#explore_text {
+	color: white;
+	cursor: pointer;
 }
 
 /* Following is for the keyframing and animations */
-/* The animation code */
-@keyframes floating{
-	from {height: 20%}
-	50% {height: 25%;}
-	to {height: 20%;}
+@keyframes explore_text_animation {
+	from {margin-right: 6vw;}
+	50% {margin-right: 2vw;}
+	to {margin-right: 6vw;}
 }
 
-footer {
-	animation-name: floating;
-	animation-duration: 1.5s;
+#explore_text {
+	animation-name: explore_text_animation;
+	animation-duration: 2.5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
+}
+
+@keyframes show_left_cover_animation {
+	from {right: 100vw;}
+	to {right: 0;}
+}
+
+#cover.show {
+	animation-name: show_left_cover_animation;
+	animation-duration: 0.5s;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	right: 0;
 }
