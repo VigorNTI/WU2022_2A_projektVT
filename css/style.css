@@ -12,10 +12,23 @@ body {
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
-	z-index: 2;
+	z-index: 999;
 	background: rgb(255,255,255);
 	/* background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%); */
 	right: 100vw;
+}
+header {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 2;
+	display: inline-flex;
+	flex-direction: row;
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.4);
+}
+header > img {
+	width: 10vw;
 }
 main {
 	position: fixed;
@@ -39,24 +52,18 @@ main {
 	margin-right: 1rem;
 }
 #searcharea {
+	height: fit-content;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	border: 2px solid black;
-	padding: 1px;
 	background: white;
 }
-#searchbar_container {
-	height: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
 #searchbar {
-	height: 100%;
+	height: 24px; /* Size of search picture */
 	border: 2px solid black !important;
+	border-style: hidden solid hidden solid !important;
 	outline: none !important;
 	padding-left: 1rem;
 }
@@ -114,17 +121,28 @@ footer {
 	font-size: 1.2rem;
 }
 
-@keyframes show_left_cover_animation {
+@keyframes uncover_right_animation {
 	from {right: 100vw;}
 	to {right: 0;}
 }
 
-#cover.show {
-	animation-name: show_left_cover_animation;
+#cover {
+	transition: right 0.5s;
+	transition-timing-function: ease-in-out;
+	right: 0vw;
+}
+#cover.uncover_left {
+	/*animation-name: uncover_right_animation;
 	animation-duration: 0.5s;
 	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	right: 0;
+	animation-timing-function: ease-in-out;*/
+	right: 100vw;
+}
+#cover.uncover_right {
+	right: -100vw;
+}
+#cover.temp_hide {
+	top: -100vh;
 }
 /* Following is media queries because properties set by the media queries needs to be prioritized */
 @media only screen and (min-width: 540px) {

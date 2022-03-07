@@ -14,22 +14,20 @@
 			<img id="front_logo" src="img/logo.png">
 			<div id="searcharea">
 				<h4 id="categories">Categories</h4>
-				<span id="searchbar_container">
-					<input id="searchbar" placeholder="Search the world!">
-					<img id="search_btn" src="img/search_black_24dp.svg">
-				</span>
+				<input id="searchbar" placeholder="Search the world!">
+				<img id="search_btn" src="img/search_black_24dp.svg">
 			</div>
 			<div id="search_hints">
 				<a>Popoular searches:</a>
-				<a href="/search?q=cars">Cars</a>
-				<a href="/search?q=scooters">Scooters</a>
-				<a href="/search?q=houses">Houses</a>
-				<a href="/search?q=food">Food</a>
-				<a href="/search?q=tennis">Tennis</a>
-				<a href="/search?q=cola">Cola</a>
-				<a href="/search?q=candy">Candy</a>
-				<a href="/search?q=popcorn">Popcorn</a>
-				<a href="/search?q=movies">Movies</a>
+				<a href="javascript: search('cars')">Cars</a>
+				<a href="javascript: search('scooters')">Scooters</a>
+				<a href="javascript: search('houses')">Houses</a>
+				<a href="javascript: search('food')">Food</a>
+				<a href="javascript: search('tennis')">Tennis</a>
+				<a href="javascript: search('cola')">Cola</a>
+				<a href="javascript: search('candy')">Candy</a>
+				<a href="javascript: search('popcorn')">Popcorn</a>
+				<a href="javascript: search('movies')">Movies</a>
 			</div>
 		</main>
 		<footer>
@@ -47,7 +45,7 @@
 		search_btn = document.getElementById("search_btn");
 
 		explore_text.addEventListener("click", event => {
-			cover.classList.add("show");
+			cover.className = ""; // this will remove any classes and therefore drag cover into the viewport
 			setTimeout(function() {
 				window.location.href = "/explore";
 			}, 500) // this function will be executed 500ms later
@@ -55,9 +53,12 @@
 
 		function search_href() {
 			val = searchbar.value;
-			cover.classList.add("show");
+			search(val);
+		}
+		function search(val) {
+			cover.className = ""; // this will remove any classes and therefore drag cover into the viewport
 			setTimeout(function() {
-				window.location.href = "/search?q=" + val;
+				window.location.href = "/search#q=" + val;
 			}, 500) // this function will be executed 500ms later
 		}
 
@@ -69,7 +70,17 @@
 
 		search_btn.addEventListener("click", event => {
 			search_href();
-		})
+		});
+		window.onload = function(){
+			cover.className = "";
+			cover.classList.add("uncover_right");
+			setTimeout(function() {
+				// when animation is done, we reset by moving our cover above the viewport and back to the left
+				cover.className="";
+				cover.classList.add("temp_hide");
+				cover.classList.add("uncover_left");
+			}, 500);
+		}
 
 	</script>
 </html>
