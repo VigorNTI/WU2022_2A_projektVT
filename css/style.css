@@ -60,11 +60,6 @@ main {
 	outline: none !important;
 	padding-left: 1rem;
 }
-@media only screen and (min-width: 540px) {
-	#searchbar {
-		width: 50vw;
-	}
-}
 #search_hints {
 	width: 60%;
 	display: flex;
@@ -97,7 +92,7 @@ footer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: end;
+	align-items: center;
 }
 #explore_text {
 	color: white;
@@ -116,6 +111,7 @@ footer {
 	animation-duration: 2.5s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
+	font-size: 1.2rem;
 }
 
 @keyframes show_left_cover_animation {
@@ -129,4 +125,16 @@ footer {
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in-out;
 	right: 0;
+}
+/* Following is media queries because properties set by the media queries needs to be prioritized */
+@media only screen and (min-width: 540px) {
+	#searchbar {
+		width: 50vw;
+	}
+	#explore_text {
+		font-size: 1.4rem;
+	}
+	footer {
+		align-items: end;
+	}
 }
