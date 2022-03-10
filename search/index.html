@@ -18,7 +18,41 @@
 				<img id="search_btn" src="../img/search_black_24dp.svg">
 			</div>
 		</header>
-		<main>
+		<nav id="nav-categories">
+			<h3>Categories</h3>
+			<ul id="categories_list">
+				<li id="all_btn" class="active">All</li>
+				<li>Cars</li>
+				<li>Scooters</li>
+				<li>Houses</li>
+				<li>Food</li>
+				<li>Sports</li>
+				<li>Snacks</li>
+				<li>Movies</li>
+				<li>Games</li>
+			</ul>
+		</nav>
+		<main id="main-search">
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpeg"></span>
+			<span><img src="../img/car.jpg"></span>
 		</main>
 	</body>
 	<script>
@@ -29,6 +63,7 @@
 		cover = document.getElementById("cover");
 		searchbar = document.getElementById("searchbar");
 		search_btn = document.getElementById("search_btn");
+		categories_list = document.getElementById("categories_list");
 
 		function search_href() {
 			val = searchbar.value;
@@ -59,6 +94,22 @@
 				document.getElementById("searchbar").value = decodeURIComponent(p[1]);
 				break; // we've found what we were looking for, exit the for loop
 			}
+		}
+		
+		for (var i = 0; i < categories_list.children.length; i++) {
+			child = categories_list.children[i];
+			child.addEventListener("click", event => {
+				event.target.classList.toggle("active");
+				if(event.target.id == "all_btn") {
+					for (var i = 1; i < categories_list.children.length; i++) {
+						child = categories_list.children[i];
+						child.classList.remove("active");
+					}
+				} else {
+					child = categories_list.children[0];
+					child.classList.remove("active");
+				}
+			});
 		}
 
 	</script>
