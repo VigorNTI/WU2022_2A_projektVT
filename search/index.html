@@ -9,8 +9,6 @@
 	<script>
 	</script>
 	<body id="body">
-		<div id="info_holder" hidden>
-
 		</div>
 		<span id="cover"></span>
 		<header>
@@ -34,7 +32,7 @@
 			</ul>
 		</nav>
 		<main id="main-search">
-			<span><img onclick="open_info(this)" src="../img/car.jpg"></span>
+			<span><img src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpeg"></span>
@@ -110,55 +108,5 @@
 					options_sort.children[0].classList.add("active");
 			});
 		}
-
-		function freeze_scroll() {
-			document.getElementsByTagName('main')[0].style.overflow = 'hidden';
-		}
-		function thaw_scroll() {
-			document.getElementsByTagName('main')[0].style.overflow = ''
-		}
-
-		var info_open = false;
-
-		function open_info(element) {
-			if (info_open) {
-				return;
-			}
-			info_open = true;
-			freeze_scroll();
-
-			/* Begin cloning and placement */
-			var infoHolder = document.getElementById("info_holder");
-			var rect = element.getBoundingClientRect();
-			
-			clone = element.cloneNode(true);
-			clone.style.width 	 = element.offsetWidth  + "px";
-			clone.style.height	 = element.offsetHeight + "px";
-			clone.style.top 	 = rect.top + "px";
-			clone.style.left	 = rect.left + "px";
-
-			clone.dataset.start_top   = rect.top;
-			clone.dataset.start_left  = rect.left;
-			clone.dataset.start_width = element.offsetWidth;
-			clone.dataset.start_height = element.offsetHeight;
-
-			infoHolder.appendChild(clone);
-			infoHolder.hidden = false;
-
-			/* Zoom element */
-			setTimeout(function(){
-				target_top = 20;
-				target_left = 20;
-				target_bot = 20;
-				target_right = 20;
-
-				clone.style.top     = target_top + '%';
-				clone.style.left    = target_left + '%';
-				clone.style.width   = (100 - target_top - target_bot) + '%';
-				clone.style.height  = (100 - target_left - target_right) + '%';
-			}, 20);
-
-		}
-
 	</script>
 </html>
