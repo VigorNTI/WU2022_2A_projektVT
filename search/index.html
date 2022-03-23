@@ -9,6 +9,9 @@
 	<script>
 	</script>
 	<body id="body">
+		<div id="info_holder" hidden>
+
+		</div>
 		<span id="cover"></span>
 		<header>
 			<img src="../img/logo.png">
@@ -18,22 +21,20 @@
 				<img id="search_btn" src="../img/search_black_24dp.svg">
 			</div>
 		</header>
-		<nav id="nav-categories">
-			<h3>Categories</h3>
-			<ul id="categories_list">
-				<li id="all_btn" class="active">All</li>
-				<li>Cars</li>
-				<li>Scooters</li>
-				<li>Houses</li>
-				<li>Food</li>
-				<li>Sports</li>
-				<li>Snacks</li>
-				<li>Movies</li>
-				<li>Games</li>
+		<nav id="nav-sort">
+			<h3>Sort</h3>
+			<ul id="options-sort">
+				<li class="active">Relevance</li>
+				<li>Newest first</li>
+				<li>Oldest first</li>
+				<li>A-Z</li>
+				<li>Z-A</li>
+				<li>Price (Ascending)</li>
+				<li>Price (Descending</li>
 			</ul>
 		</nav>
 		<main id="main-search">
-			<span><img src="../img/car.jpg"></span>
+			<span><img onclick="open_info(this)" src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpg"></span>
 			<span><img src="../img/car.jpeg"></span>
@@ -63,7 +64,7 @@
 		cover = document.getElementById("cover");
 		searchbar = document.getElementById("searchbar");
 		search_btn = document.getElementById("search_btn");
-		categories_list = document.getElementById("categories_list");
+		options_sort = document.getElementById("options-sort");
 
 		function search_href() {
 			val = searchbar.value;
@@ -96,20 +97,67 @@
 			}
 		}
 		
-		for (var i = 0; i < categories_list.children.length; i++) {
-			child = categories_list.children[i];
+		for (var i = 0; i < options_sort.children.length; i++) {
+			child = options_sort.children[i];
 			child.addEventListener("click", event => {
-				event.target.classList.toggle("active");
-				if(event.target.id == "all_btn") {
-					for (var i = 1; i < categories_list.children.length; i++) {
-						child = categories_list.children[i];
+				for (var i = 0; i < options_sort.children.length; i++) {
+					child = options_sort.children[i];
+					if (child != event.target)
 						child.classList.remove("active");
-					}
-				} else {
-					child = categories_list.children[0];
-					child.classList.remove("active");
 				}
+				event.target.classList.toggle("active");
+				if (!event.target.classList.contains("active"))
+					options_sort.children[0].classList.add("active");
 			});
+		}
+
+		function freeze_scroll() {
+			document.getElementsByTagName('main')[0].style.overflow = 'hidden';
+		}
+		function thaw_scroll() {
+			document.getElementsByTagName('main')[0].style.overflow = ''
+		}
+
+		var info_open = false;
+
+		function open_info(element) {
+			if (info_open) {
+				return;
+			}
+			info_open = true;
+			freeze_scroll();
+
+			/* Begin cloning and placement */
+			var infoHolder = document.getElementById("info_holder");
+			var rect = element.getBoundingClientRect();
+			
+			clone = element.cloneNode(true);
+			clone.style.width 	 = element.offsetWidth  + "px";
+			clone.style.height	 = element.offsetHeight + "px";
+			clone.style.top 	 = rect.top + "px";
+			clone.style.left	 = rect.left + "px";
+
+			clone.dataset.start_top   = rect.top;
+			clone.dataset.start_left  = rect.left;
+			clone.dataset.start_width = element.offsetWidth;
+			clone.dataset.start_height = element.offsetHeight;
+
+			infoHolder.appendChild(clone);
+			infoHolder.hidden = false;
+
+			/* Zoom element */
+			setTimeout(function(){
+				target_top = 20;
+				target_left = 20;
+				target_bot = 20;
+				target_right = 20;
+
+				clone.style.top     = target_top + '%';
+				clone.style.left    = target_left + '%';
+				clone.style.width   = (100 - target_top - target_bot) + '%';
+				clone.style.height  = (100 - target_left - target_right) + '%';
+			}, 20);
+
 		}
 
 	</script>
