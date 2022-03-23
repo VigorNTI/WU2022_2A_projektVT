@@ -149,6 +149,9 @@ header > img {
 	margin-top: 5rem;
 	padding-right: 1rem;
 }
+#main-search.explore {
+	padding-left: 1rem;
+}
 #main-search > span {
 	display: flex;
 	align-items: center;
