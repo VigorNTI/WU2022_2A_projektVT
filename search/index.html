@@ -14,13 +14,16 @@
 		<header>
 			<img src="../img/logo.png">
 			<div id="searcharea">
-				<h4 id="categories">Categories</h4>
+				<span id="categories-container">
+					<h4 id="categories">Categories</h4>
+				</span>
 				<input id="searchbar" name="q" type="text" placeholder="Search the world!">
 				<img id="search_btn" src="../img/search_black_24dp.svg">
+				<img id="sort_btn" src="../img/sort_black_24dp.svg">
 			</div>
 		</header>
 		<nav id="nav-sort">
-			<h3>Sort</h3>
+			<h3>Sorting by</h3>
 			<ul id="options-sort">
 				<li class="active">Relevance</li>
 				<li>Newest first</li>
@@ -59,10 +62,12 @@
 			return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
 		}
 
-		cover = document.getElementById("cover");
-		searchbar = document.getElementById("searchbar");
-		search_btn = document.getElementById("search_btn");
-		options_sort = document.getElementById("options-sort");
+		cover 		= document.getElementById("cover");
+		searchbar 	= document.getElementById("searchbar");
+		search_btn 	= document.getElementById("search_btn");
+		sort_btn 	= document.getElementById("sort_btn");
+		nav_sort	= document.getElementById("nav-sort");
+		options_sort 	= document.getElementById("options-sort");
 
 		function search_href() {
 			val = searchbar.value;
@@ -80,6 +85,10 @@
 
 		search_btn.addEventListener("click", event => {
 			search_href();
+		});
+
+		sort_btn.addEventListener("click", event => {
+			nav_sort.classList.toggle("active");
 		});
 
 		window.onload = function(){

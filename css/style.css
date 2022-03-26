@@ -85,42 +85,45 @@ header {
 }
 header > img {
 	width: 10vw;
+	display: none;
 }
 #nav-sort {
-	width: 20vw;
-	margin: 1rem;
-	padding-top: 1rem;
-	margin-top: 5rem;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 
-	border: 3px solid white;
+	width: 50vw;
 	border-radius: 3px;
-	background: rgba(255, 255, 255, 0.8);
+	border: 3px solid black;
+	background: rgba(255, 255, 255, 1);
+	padding: 3px;
+
+	/* Exclusive for mobile */
+	display: none;
+}
+#nav-sort.active {
+	display: block;
 }
 #nav-sort * {
 	text-align: center;
 }
 #nav-sort > *:first-child {
 	/* This will always be the title */
-	margin-right: 10%;
-	margin-left: 10%;
-	margin-bottom: 1rem;
+	margin-bottom: 3px;
 	padding: 0.5rem;
 
 	border: 3px solid black;
 	border-radius: 3px;
-	background: rgba(255, 255, 255, 0.8);
 }
 #nav-sort > ul {
 	list-style: none;
 	padding-inline-start: 0; /* In order to compensate for default padding on inline start */
 }
 #nav-sort > ul > li {
-	margin-bottom: 1rem;
 	border: 3px solid white;
 	border-radius: 3px;
 	background: rgba(255, 255, 255, 1);
-	margin-right: 10%;
-	margin-left: 10%;
 	transition: all 0.5s;
 	transition-timing-function: ease-in-out;
 	cursor: pointer;
@@ -148,6 +151,7 @@ header > img {
 	overflow-x: hidden;
 	margin-top: 5rem;
 	padding-right: 1rem;
+	padding-left: 1rem;
 }
 #main-search.explore {
 	padding-left: 1rem;
@@ -170,10 +174,6 @@ header > img {
 	margin-top: 20%;
 	margin-bottom: 3rem;
 }
-#categories {
-	margin-left: 1rem;
-	margin-right: 1rem;
-}
 #searcharea {
 	height: fit-content;
 	display: flex;
@@ -182,6 +182,16 @@ header > img {
 	align-items: center;
 	border: 2px solid black;
 	background: white;
+	align-items: stretch;
+}
+#categories-container {
+	display: flex;
+	align-items: center;
+}
+#categories {
+	text-align: center;
+	margin-left: 1rem;
+	margin-right: 1rem;
 }
 #searchbar {
 	height: 24px; /* Size of search picture */
@@ -189,6 +199,23 @@ header > img {
 	border-style: hidden solid hidden solid !important;
 	outline: none !important;
 	padding-left: 1rem;
+	padding-top: 0;
+}
+#search_btn:hover {
+	background: #ccc;
+}
+#sort_btn:hover {
+	background: #ccc;
+}
+#search_btn {
+	cursor: pointer;
+	transition: all 0.2s;
+}
+#sort_btn {
+	border: 2px solid black !important;
+	border-style: hidden hidden hidden dashed !important;
+	cursor: pointer;
+	transition: all 0.2s;
 }
 #search_hints {
 	width: 60%;
@@ -268,7 +295,10 @@ footer {
 	top: -100vh;
 }
 /* Following is media queries because properties set by the media queries needs to be prioritized */
-@media only screen and (min-width: 540px) {
+@media only screen and (min-width: 740px) {
+	header > img {
+		display: block;
+	}
 	#searchbar {
 		width: 50vw;
 	}
@@ -280,5 +310,33 @@ footer {
 	}
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
+	}
+	#nav-sort {
+		display: block;
+		position: static; /* This is default value */
+		width: 20vw;
+		padding-top: 1rem;
+		background: rgba(255, 255, 255, 0.8);
+		margin: 1rem;
+		margin-top: 5rem;
+		transform: translate(0, 0);
+		opacity: 100;
+	}
+	#nav-sort > *:first-child {
+		margin-right: 10%;
+		margin-left: 10%;
+		margin-bottom: 1rem;
+		background: rgba(255, 255, 255, 0.8);
+	}
+	#nav-sort > ul > li {
+		margin-bottom: 1rem;
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+	#main-search {
+		padding-left: 0;
+	}
+	#sort_btn {
+		display: none;
 	}
 }
