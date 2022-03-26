@@ -149,8 +149,10 @@ header > img {
 	grid-row-gap: 1rem;
 	grid-column-gap: 1rem;
 	overflow-x: hidden;
-	margin-top: 5rem;
+	margin-top: 4rem;
 	margin-bottom: 1rem;
+
+	padding-top: 1rem;
 	padding-right: 1rem;
 	padding-left: 1rem;
 }
@@ -167,6 +169,11 @@ header > img {
 	background: rgba(255, 255, 255, 0.8);
 	padding: 1rem;
 	aspect-ratio: 1;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+#main-search > span:hover {
+	transform: perspective(200px) translateZ(10px);
 }
 #main-search > span > span.img {
 	height: 80%;
@@ -329,7 +336,22 @@ footer {
 	top: -100vh;
 }
 /* Following is media queries because properties set by the media queries needs to be prioritized */
-@media only screen and (min-width: 740px) {
+@media only screen and (min-width: 540px) { /* First epoch */
+	#main-search {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media only screen and (min-width: 740px) { /* First epoch */
+	#main-search {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media only screen and (min-width: 940px) { /* First epoch */
+	#main-search {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+@media only screen and (min-width: 1240px) { /* Threshold for mobile phones */
 	header > img {
 		display: block;
 	}
@@ -344,18 +366,21 @@ footer {
 	}
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
+		width: 90vw;
 	}
 	#main-search.explore {
 		padding-left: 10vw;
 		padding-right: 10vw;
+		width: 100vw;
 	}
 	#nav-sort {
 		display: block;
 		position: static; /* This is default value */
-		width: 20vw;
+		width: 10vw;
 		padding-top: 1rem;
 		background: rgba(255, 255, 255, 0.8);
 		margin: 1rem;
+		margin-right: 0;
 		margin-top: 5rem;
 		transform: translate(0, 0);
 		opacity: 100;
@@ -370,9 +395,6 @@ footer {
 		margin-bottom: 1rem;
 		margin-right: 10%;
 		margin-left: 10%;
-	}
-	#main-search {
-		padding-left: 0;
 	}
 	#sort_btn {
 		display: none;
