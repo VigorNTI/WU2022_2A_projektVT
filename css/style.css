@@ -150,6 +150,7 @@ header > img {
 	grid-column-gap: 1rem;
 	overflow-x: hidden;
 	margin-top: 5rem;
+	margin-bottom: 1rem;
 	padding-right: 1rem;
 	padding-left: 1rem;
 }
@@ -158,6 +159,7 @@ header > img {
 }
 #main-search > span {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	border: 3px solid white;
@@ -166,9 +168,41 @@ header > img {
 	padding: 1rem;
 	aspect-ratio: 1;
 }
-#main-search > span > img {
-	max-width: 100%;
-	max-height: 100%;
+#main-search > span > span.img {
+	height: 80%;
+	min-height: 80%;
+	width: 100%;
+	background-size: cover;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+#main-search > span > p {
+	max-height: 20%;
+	font-weight: normal;
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+	line-height: 1.5;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* number of lines to show */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+#main-search > span > span:last-child {
+	height: 5%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+#main-search > span > span:last-child > h4:first-child {
+	width: 50%;
+	text-align: left;
+}
+#main-search > span > span:last-child > h4:last-child {
+	width: 50%;
+	text-align: right;
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 0.9rem;
 }
 #front_logo {
 	margin-top: 20%;
@@ -310,6 +344,10 @@ footer {
 	}
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
+	}
+	#main-search.explore {
+		padding-left: 10vw;
+		padding-right: 10vw;
 	}
 	#nav-sort {
 		display: block;
