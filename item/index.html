@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+	<meta charset="UTF-8">
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="../css/style.css">
+	<style>
+	</style>
+	<script>
+	</script>
+	<body id="body">
+		</div>
+		<span id="cover"></span>
+		<header>
+			<img src="../img/logo.png">
+			<div id="searcharea">
+				<span id="categories-container">
+					<h4 id="categories">Categories</h4>
+				</span>
+				<input autocomplete="off" id="searchbar" name="q" type="text" placeholder="Search the world!">
+				<img id="search_btn" src="../img/search_black_24dp.svg">
+			</div>
+		</header>
+		<main id="main-item">
+			<span class="container">
+				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
+				<span id="data-container">300kr</span>
+				<span id="description-container">
+					<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
+				</span>
+			</span>
+		</main>
+	</body>
+	<script>
+		function map(input, input_start, input_end, output_start, output_end) {
+			return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
+		}
+
+		cover = document.getElementById("cover");
+		searchbar = document.getElementById("searchbar");
+		search_btn = document.getElementById("search_btn");
+
+		function search_href() {
+			val = searchbar.value;
+			cover.classList.remove("uncover_left");
+			setTimeout(function() {
+				window.location.href = "/search#q=" + val;
+			}, 500) // this function will be executed 500ms later
+		}
+
+		searchbar.addEventListener("keypress", event => {
+			if (event.key === 'Enter') {
+				search_href();
+			}
+		});
+
+		search_btn.addEventListener("click", event => {
+			search_href();
+		});
+
+		window.onload = function(){
+			cover.className = "";
+			cover.classList.add("uncover_right");
+			searchbar.value = "";
+		}
+	</script>
+</html>

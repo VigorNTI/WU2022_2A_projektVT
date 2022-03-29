@@ -142,6 +142,42 @@ header > img {
 	flex-direction: column;
 	align-items: center;
 }
+#main-item {
+	width: 100vw;
+	margin-top: 5rem;
+	margin-bottom: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+}
+#main-item .container{
+	width: 70vw;
+	min-height: 100%;
+	background: rgba(255, 255, 255, 0.9);
+	
+	display: grid;
+	grid-template-areas:	"img img"
+				"des des"
+				"dat dat";
+	grid-template-columns:	1fr 1fr;
+	grid-template-rows:	50vh auto auto;
+	padding: 1rem;
+}
+#main-item .container .img {
+	grid-area: img;
+
+	background-size: cover;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+#data-container {
+	grid-area: dat;
+}
+#description-container {
+	grid-area: des;
+}
 #main-search {
 	width: 100vw;
 	display: grid;
@@ -336,22 +372,22 @@ footer {
 	top: -100vh;
 }
 /* Following is media queries because properties set by the media queries needs to be prioritized */
-@media only screen and (min-width: 540px) { /* First epoch */
+@media only screen and (min-width: 540px) {
 	#main-search {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
-@media only screen and (min-width: 740px) { /* First epoch */
+@media only screen and (min-width: 740px) {
 	#main-search {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
-@media only screen and (min-width: 940px) { /* First epoch */
+@media only screen and (min-width: 940px) { 
 	#main-search {
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
-@media only screen and (min-width: 1240px) { /* Threshold for mobile phones */
+@media only screen and (min-width: 1240px) { 
 	header > img {
 		display: block;
 	}
@@ -363,6 +399,11 @@ footer {
 	}
 	footer {
 		align-items: end;
+	}
+	#main-item .container {
+		grid-template-areas:	"img dat"
+					"des dat";
+		width: 50vw;
 	}
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
