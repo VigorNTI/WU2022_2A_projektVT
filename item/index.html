@@ -6,7 +6,34 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<style>
 	</style>
-	<script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+				['Day', 'Price'],
+				['4',  200],
+				['5',  243],
+				['6',  240],
+				['7',  280],
+				['8',  243],
+				['9',  240],
+				['10', 280],
+				['11',  300]
+			]);
+
+			var options = {
+				title: 'Price over time',
+				curveType: 'none',
+				legend: { position: 'bottom' }
+			};
+
+			var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+			chart.draw(data, options);
+		}
 	</script>
 	<body id="body">
 		</div>
@@ -24,7 +51,50 @@
 		<main id="main-item">
 			<span class="container">
 				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
-				<span id="data-container">300kr</span>
+				<span id="data-container">
+					<h2 class="item-name">Yellow nice car - 300hp</h2>
+					<h3 class="price">300kr</h3>
+					<p>Uploaded 5 days ago</p>
+					<a href="buy">Buy now</a>
+					<span class="price-chart-container">
+						<div id="curve_chart" style=""></div>
+					</span>
+					<span class="shipping-container">
+						<span>
+							<img src="../img/local_shipping_black_24dp.svg">
+							<h3>Shipping</h3>
+						</span>
+						<h3>20kr DHL</h3>
+						<p>Estimated delivery: 2 mar 2022</p>
+						<h3>24kr TR Shipping</h3>
+						<p>Estimated delivery: 3 mar 2022</p>
+						<h3>30kr PostNord</h3>
+						<p>Estimated delivery: never</p>
+					</span>
+					<span class="payment-container">
+						<span>
+							<img src="../img/account_balance_wallet_black_24dp.svg">
+							<h3>Payment</h3>
+						</span>
+						<span class="icons">
+							<img src="../img/VisaInc.svg">
+							<img src="../img/Mastercard.svg">
+							<img src="../img/Swish.svg">
+							<img src="../img/PayPal.svg">
+							<img src="../img/GooglePay.svg">
+							<img src="../img/ApplePay.svg">
+						</span>
+						<p><b>VigSafe©</b> - Safe payments</p>
+					</span>
+					<span class="info-container">
+						<span>
+							<img src="../img/info_black_24dp.svg">
+							<h3>Seller</h3>
+						</span>
+						<h3>Vigor T</h3>
+						<p>Enskild firma från umeå.</p>
+					</span>
+				</span>
 				<span id="description-container">
 					<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				</span>

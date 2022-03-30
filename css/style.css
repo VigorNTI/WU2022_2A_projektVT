@@ -175,6 +175,13 @@ header > img {
 #data-container {
 	grid-area: dat;
 }
+#data-container *:not(b){
+	font-weight: normal;
+}
+#data-container .payment-container .icons > * {
+	height: 15px;
+	margin-right: 10px;
+}
 #description-container {
 	grid-area: des;
 }
@@ -224,7 +231,7 @@ header > img {
 	font-weight: normal;
 	margin-top: 2.5%;
 	margin-bottom: 2.5%;
-	line-height: 1.5;
+	line-height: 1;
 
 	display: -webkit-box;
 	-webkit-line-clamp: 2; /* number of lines to show */
@@ -404,6 +411,7 @@ footer {
 		grid-template-areas:	"img dat"
 					"des dat";
 		width: 50vw;
+		grid-template-rows: 50vh auto auto;
 	}
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
