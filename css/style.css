@@ -85,6 +85,7 @@ header {
 }
 header > img {
 	width: 10vw;
+	margin-right: 0.5rem;
 	display: none;
 }
 #nav-sort {
@@ -311,6 +312,7 @@ header > img {
 #front_logo {
 	margin-top: 20%;
 	margin-bottom: 3rem;
+	width: 50vw;
 }
 #searcharea {
 	height: fit-content;
@@ -449,6 +451,9 @@ footer {
 	}
 }
 @media only screen and (min-width: 1240px) { 
+	#front_logo {
+		width: 30vw;
+	}
 	header > img {
 		display: block;
 	}
