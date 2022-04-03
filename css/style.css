@@ -144,18 +144,18 @@ header > img {
 }
 #main-item {
 	width: 100vw;
-	margin-top: 5rem;
-	margin-bottom: 1rem;
+	padding-top: 5rem;
+	padding-bottom: 1rem;
 
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: start;
+	overflow: scroll;
 }
-#main-item .container{
+#main-item .container {
 	width: 70vw;
-	min-height: 100%;
-	background: rgba(255, 255, 255, 0.9);
+	background-color: #f8f7f7;
 	
 	display: grid;
 	grid-template-areas:	"img img"
@@ -163,6 +163,7 @@ header > img {
 				"dat dat";
 	grid-template-columns:	1fr 1fr;
 	grid-template-rows:	50vh auto auto;
+	grid-gap: 0.5rem 1rem;
 	padding: 1rem;
 }
 #main-item .container .img {
@@ -172,18 +173,71 @@ header > img {
 	background-position: 50%;
 	background-repeat: no-repeat;
 }
+#main-item .container > * {
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0 0 10px #ccc;
+}
+#main-item .container .section_heading {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
 #data-container {
 	grid-area: dat;
+	padding: 1rem;
 }
-#data-container *:not(b){
-	font-weight: normal;
+#data-container .item-name {
+	font-weight: bold;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
 }
+#data-container .item-price {
+	font-weight: bold;
+}
+#data-container .btn-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+#buy-btn {
+	text-align: center;
+	padding: 0.5rem;
+	background: green;
+	text-decoration: none;
+	color: white;
+	transition: all 0.3s;
+}
+#buy-btn:hover {
+	/* To remove preset parameters */
+	color: white;
+	background: rgba(0, 200, 0, 1);
+	transform: perspective(200px) translateZ(10px);
+}
+#data-container section {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+#data-container .shipping-container span:not(:first-child) h3{
+	text-decoration: underline;
+}
+
+
 #data-container .payment-container .icons > * {
 	height: 15px;
 	margin-right: 10px;
 }
+#data-container *:not(b){
+	font-weight: normal;
+}
 #description-container {
 	grid-area: des;
+	padding: 1rem;
 }
 #main-search {
 	width: 100vw;
