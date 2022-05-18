@@ -87,6 +87,7 @@ header > img {
 	width: 10vw;
 	margin-right: 0.5rem;
 	display: none;
+	cursor: pointer;
 }
 #nav-sort {
 	position: fixed;

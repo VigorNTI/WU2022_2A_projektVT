@@ -12,7 +12,7 @@
 		</div>
 		<span id="cover"></span>
 		<header>
-			<img src="../img/logo.png">
+			<img src="../img/logo.png" onclick="javascript: href('/');">
 			<div id="searcharea">
 				<span id="categories-container">
 					<h4 id="categories">Categories</h4>
@@ -22,77 +22,77 @@
 			</div>
 		</header>
 		<main id="main-search" class="explore">
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
 			</span>
-			<span>
+			<span onclick="javascript: openItem('white_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				<h4>300 kr</h4>
@@ -108,12 +108,26 @@
 		searchbar = document.getElementById("searchbar");
 		search_btn = document.getElementById("search_btn");
 
+		function openItem(name) {
+			cover.className = "";
+			setTimeout(function() {
+				window.location.href = "/item#name=" + name;
+			}, 500);
+		}
+
 		function search_href() {
 			val = searchbar.value;
-			cover.classList.remove("uncover_left");
+			cover.className = "";
 			setTimeout(function() {
 				window.location.href = "/search#q=" + val;
 			}, 500) // this function will be executed 500ms later
+		}
+
+		function href(location) {
+			cover.className = "";
+			setTimeout(function() {
+				window.location.href = location;
+			}, 500); // this function will be executed 500ms later
 		}
 
 		searchbar.addEventListener("keypress", event => {
@@ -130,6 +144,12 @@
 			cover.className = "";
 			cover.classList.add("uncover_right");
 			searchbar.value = "";
+			setTimeout(function() {
+				// when animation is done, we reset by moving our cover above the viewport and back to the left
+				cover.className="";
+				cover.classList.add("temp_hide");
+				cover.classList.add("uncover_left");
+			}, 500);
 		}
 	</script>
 </html>

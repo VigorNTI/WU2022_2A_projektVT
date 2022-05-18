@@ -39,7 +39,7 @@
 		</div>
 		<span id="cover"></span>
 		<header>
-			<img src="../img/logo.png">
+			<img src="../img/logo.png" onclick="javascript: href('/');">
 			<div id="searcharea">
 				<span id="categories-container">
 					<h4 id="categories">Categories</h4>
@@ -127,10 +127,17 @@
 
 		function search_href() {
 			val = searchbar.value;
-			cover.classList.remove("uncover_left");
+			cover.className = "";
 			setTimeout(function() {
 				window.location.href = "/search#q=" + val;
 			}, 500) // this function will be executed 500ms later
+		}
+
+		function href(location) {
+			cover.className = "";
+			setTimeout(function() {
+				window.location.href = location;
+			}, 500); // this function will be executed 500ms later
 		}
 
 		searchbar.addEventListener("keypress", event => {
@@ -147,6 +154,12 @@
 			cover.className = "";
 			cover.classList.add("uncover_right");
 			searchbar.value = "";
+						setTimeout(function() {
+				// when animation is done, we reset by moving our cover above the viewport and back to the left
+				cover.className="";
+				cover.classList.add("temp_hide");
+				cover.classList.add("uncover_left");
+			}, 500);
 		}
 	</script>
 </html>
