@@ -13,7 +13,7 @@
 			<img src="../img/logo.png" onclick="javascript: href('/');" alt="logo">
 			<div id="searcharea">
 				<span id="categories-container">
-					<h4 id="categories">Categories</h4>
+					<p id="categories">Categories</p>
 				</span>
 				<input autocomplete="off" id="searchbar" placeholder="Search the world! And buy it all!">
 				<img id="search_btn" src="../img/search_black_24dp.svg" alt="search">
@@ -22,12 +22,12 @@
 		<main id="main-item">
 			<span class="container">
 				<!-- Image needs to be set as background of a blank tag since img tag won't allow cropping, which we reqire -->
-				<span class="img" style="background-image: url('../img/car.jpeg');"></span>
-				<span id="data-container">
-					<h2 class="item-name">Yellow nice car - 300hp</h2>
+				<figure class="img" style="background-image: url('../img/car.jpeg');"></figure>
+				<article id="data-container">
+					<h1 class="item-name">Yellow nice car - 300hp</h1>
 					<span class="section_heading">
 						<img src="../img/auto_graph_black_24dp.svg" alt="graph">
-						<h3 class="item-price">Price over time</h3>
+						<h2 class="item-price">Price over time</h2>
 					</span>
 					<span class="price-chart-container">
 						<div id="curve_chart" style=""></div>
@@ -38,18 +38,18 @@
 					<section class="shipping-container">
 						<span class="section_heading">
 							<img src="../img/local_shipping_black_24dp.svg" alt="shipping truck">
-							<h3>Shipping</h3>
+							<h2>Shipping</h2>
 						</span>
 						<span>
-							<h3>20kr - DHL</h3>
+							<h2>20kr - DHL</h2>
 							<p>Estimated delivery: 2 mar 2022</p>
 						</span>
 						<span>
-							<h3>24kr - TR Shipping</h3>
+							<h2>24kr - TR Shipping</h2>
 							<p>Estimated delivery: 3 mar 2022</p>
 						</span>
 						<span>
-							<h3>30kr - PostNord</h3>
+							<h2>30kr - PostNord</h2>
 							<p>Estimated delivery: never</p>
 						</span>
 						<span>
@@ -57,7 +57,7 @@
 					<section class="payment-container">
 						<span class="section_heading">
 							<img src="../img/account_balance_wallet_black_24dp.svg" alt="wallet">
-							<h3>Payment</h3>
+							<h2>Payment</h2>
 						</span>
 						<span class="icons">
 							<img src="../img/VisaInc.svg" alt="visa">
@@ -72,19 +72,19 @@
 					<section class="info-container">
 						<span class="section_heading">
 							<img src="../img/info_black_24dp.svg" alt="info">
-							<h3>Info</h3>
+							<h2>Info</h2>
 						</span>
 						<h3>Vigor T</h3>
 						<p>Enskild firma från umeå.</p>
 					</section>
-				</span>
-				<span id="description-container">
+				</article>
+				<section id="description-container">
 					<span class="section_heading">
 						<img src="../img/description_black_24dp.svg" alt="description form">
-						<h3>Description</h3>
+						<h2>Description</h2>
 					</span>
 					<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
-				</span>
+				</section>
 			</span>
 		</main>
 	</body>

@@ -42,6 +42,11 @@ body:before {
 	-webkit-transition: all 2s linear;
 	-o-transition     : all 2s linear;
 }
+mark {
+	/* Override agent styling */
+	background-color: transparent;
+	font-weight: bold;
+}
 #info_holder {
 	z-index: 100;
 	position: fixed;
@@ -89,7 +94,7 @@ header > img {
 	display: none;
 	cursor: pointer;
 }
-#nav-sort {
+#aside-sort {
 	position: fixed;
 	left: 50%;
 	top: 50%;
@@ -104,13 +109,13 @@ header > img {
 	/* Exclusive for mobile */
 	display: none;
 }
-#nav-sort.active {
+#aside-sort.active {
 	display: block;
 }
-#nav-sort * {
+#aside-sort * {
 	text-align: center;
 }
-#nav-sort > *:first-child {
+#aside-sort > *:first-child {
 	/* This will always be the title */
 	margin-bottom: 3px;
 	padding: 0.5rem;
@@ -118,11 +123,11 @@ header > img {
 	border: 3px solid black;
 	border-radius: 3px;
 }
-#nav-sort > ul {
+#aside-sort > ul {
 	list-style: none;
 	padding-inline-start: 0; /* In order to compensate for default padding on inline start */
 }
-#nav-sort > ul > li {
+#aside-sort > ul > li {
 	border: 3px solid white;
 	border-radius: 3px;
 	background: rgba(255, 255, 255, 1);
@@ -130,10 +135,13 @@ header > img {
 	transition-timing-function: ease-in-out;
 	cursor: pointer;
 }
-#nav-sort > ul > li.active {
+#aside-sort > ul > li.active {
 	background: black;
 	border: 3px solid black;
 	color: white;
+}
+#aside-sort > p {
+	font-size: 1.2em;
 }
 #main {
 	position: fixed;
@@ -154,6 +162,12 @@ header > img {
 	align-items: center;
 	justify-content: start;
 	overflow: scroll;
+}
+#main-item h1 {
+	font-size: 1.5em;
+}
+#main-item h2 {
+	font-size: 1.17em;
 }
 #main-item .container {
 	width: 90vw;
@@ -258,7 +272,7 @@ header > img {
 #main-search.explore {
 	padding-left: 1rem;
 }
-#main-search > span {
+#main-search > article {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -271,10 +285,10 @@ header > img {
 	transition: all 0.3s;
 	cursor: pointer;
 }
-#main-search > span:hover {
+#main-search > article:hover {
 	transform: perspective(200px) translateZ(10px);
 }
-#main-search > span > span.img {
+#main-search > article > figure {
 	height: 80%;
 	min-height: 80%;
 	width: 100%;
@@ -282,7 +296,7 @@ header > img {
 	background-position: 50%;
 	background-repeat: no-repeat;
 }
-#main-search > span > p {
+#main-search > article > p:not(:last-child) {
 	max-height: 20%;
 	font-weight: normal;
 	margin-top: 2.5%;
@@ -294,17 +308,17 @@ header > img {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-#main-search > span > span:last-child {
+#main-search > article > p:last-child {
 	height: 5%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 }
-#main-search > span > span:last-child > h4:first-child {
+#main-search > article > p:last-child > mark:first-child {
 	width: 50%;
 	text-align: left;
 }
-#main-search > span > span:last-child > h4:last-child {
+#main-search > article > p:last-child > mark:last-child {
 	width: 50%;
 	text-align: right;
 	color: rgba(0, 0, 0, 0.7);
@@ -314,6 +328,7 @@ header > img {
 	margin-top: 20%;
 	margin-bottom: 3rem;
 	width: 50vw;
+	max-width: 450px;
 }
 #searcharea {
 	height: fit-content;
@@ -453,7 +468,7 @@ footer {
 }
 @media only screen and (min-width: 1240px) { 
 	#front_logo {
-		width: 30vw;
+		width: 450px;
 	}
 	header > img {
 		display: block;
@@ -482,7 +497,7 @@ footer {
 		padding-right: 10vw;
 		width: 100vw;
 	}
-	#nav-sort {
+	#aside-sort {
 		display: block;
 		position: static; /* This is default value */
 		width: 10vw;
@@ -494,13 +509,13 @@ footer {
 		transform: translate(0, 0);
 		opacity: 100;
 	}
-	#nav-sort > *:first-child {
+	#aside-sort > *:first-child {
 		margin-right: 10%;
 		margin-left: 10%;
 		margin-bottom: 1rem;
 		background: rgba(255, 255, 255, 0.8);
 	}
-	#nav-sort > ul > li {
+	#aside-sort > ul > li {
 		margin-bottom: 1rem;
 		margin-right: 10%;
 		margin-left: 10%;
