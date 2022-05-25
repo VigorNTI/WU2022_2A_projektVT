@@ -11,6 +11,14 @@
 	<body id="body">
 		</div>
 		<span id="cover"></span>
+		<nav id="nav">
+			<section>
+				<h1>Fast travel:</h1>
+				<a onclick="javscript:goto('/')">Home</a>
+				<a onclick="javscript:goto('/search')">Search</a>
+				<a onclick="javscript:goto('/explore')">Explore</a>
+			</section>
+		</nav>
 		<header>
 			<img src="../img/logo.png" onclick="javascript: href('/');" alt="logo">
 			<div id="searcharea">
@@ -20,6 +28,14 @@
 				<input autocomplete="off" id="searchbar" placeholder="Search the world! And buy it all!">
 				<img id="search_btn" src="../img/search_black_24dp.svg" alt="search">
 				<img id="sort_btn" src="../img/sort_black_24dp.svg" alt="sort">
+			</div>
+			<div id="nav_btn">
+				<div></div>
+				<div class="middle">
+					<div></div>
+					<div></div>
+				</div>
+				<div></div>
 			</div>
 		</header>
 		<aside id="aside-sort">

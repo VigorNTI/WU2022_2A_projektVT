@@ -2,9 +2,10 @@ function map(input, input_start, input_end, output_start, output_end) {
 	return output_start + ((output_end - output_start) / (input_end - input_start)) * (input - input_start);
 }
 
-cover = document.getElementById("cover");
-searchbar = document.getElementById("searchbar");
-search_btn = document.getElementById("search_btn");
+cover		= document.getElementById("cover");
+searchbar	= document.getElementById("searchbar");
+search_btn	= document.getElementById("search_btn");
+nav_btn		= document.getElementById("nav_btn");
 
 function search_href() {
 	val = searchbar.value;
@@ -42,4 +43,17 @@ window.onload = function(){
 		cover.classList.add("uncover_left");
 	}, 500);
 }
+
+function goto(url) {
+	cover.className = "";
+	setTimeout(function() {
+		window.location.href = url;
+	}, 500);
+}
+
+nav_btn.addEventListener("click", event => {
+	nav_btn.classList.toggle("clicked");
+	document.getElementsByTagName("nav")[0].classList.toggle("clicked");
+	searchbar.disabled = !searchbar.disabled;
+});
 

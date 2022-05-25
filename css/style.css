@@ -47,27 +47,126 @@ mark {
 	background-color: transparent;
 	font-weight: bold;
 }
-#info_holder {
-	z-index: 100;
-	position: fixed;
+#nav_btn {
+	display: block;
+	height: 35px;
+	width: auto;
+	aspect-ratio: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	cursor: pointer;
+	margin-right: 2rem;
+}
+#nav_btn div:not(.middle), #nav_btn > div.middle > div {
 	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	right: 0;
+	height: 5px;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 5px;
+	border-width: 2px;
+	border-color: black;
+	border-style: solid;
+	opacity = 1;
+	transition: all .4s;
+	-o-transition: all .4s;
+	-moz-transition: all .4s;
+	-webkit-transition: all .4s;
+}
+#nav_btn > div.middle {
+	width: 100%;
+	height: 5px;
+}
+#nav_btn > div.middle > div:first-child {
+	z-index: 10;
+	width: 35px;
+	position: absolute;
+	height: 5px;
+	margin-top: -2px;
+}
+#nav_btn > div.middle > div:last-child {
+	z-index: 9;
+	width: 35px;
+	position: absolute;
+	height: 5px;
+	margin-top: -2px;
+}
+/* Clicked */
+#nav_btn.clicked > div:nth-child(1){
+	opacity: 0;
+	height: 0;
+}
+#nav_btn.clicked > div.middle > div:first-child {
+	transform: rotate(45deg);
+}
+#nav_btn.clicked > div.middle > div:last-child {
+	transform: rotate(-45deg);
+}
+#nav_btn.clicked > div:nth-child(3){
+	opacity: 0;
+	height: 0;
+}
+nav {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 1;
+	bottom: 100vh;
+	opacity: 0;
+	transition: all .3s;
+	-o-transition: all .3s;
+	-moz-transition: all .3s;
+	-webkit-transition: all .3s;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+nav.clicked {
 	bottom: 0;
+	opacity: 1;
+}
+nav section {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 40%;
+	background-color: white;
+	padding: 3rem;
+	border-radius: 10px;
+	border-width: 2px;
+	border-color: black;
+	border-style: solid;
+}
+nav section h1 {
+	width: 100%;
+	text-align: center;
+	font-size: 2em;
+	border-width: 5px;
+	border-radius: 5px;
+	border-color: black;
+	border-style: inset;
+	padding: 1rem;
+}
+nav a {
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	background-color: white;
+	padding: 2rem;
+	margin: 2rem;
+	font-size: 2em;
+	border-radius: 5px;
 	transition: all .3s;
 	-o-transition: all .3s;
 	-moz-transition: all .3s;
 	-webkit-transition: all .3s;
 }
-#info_holder > * {
-	position: absolute;
-	display: block;
-	transition: all .3s;
-	-o-transition: all .3s;
-	-moz-transition: all .3s;
-	-webkit-transition: all .3s;
+nav a:hover {
+	background-color: black;
+	color: white;
 }
 #cover {
 	position: fixed;
@@ -82,11 +181,15 @@ header {
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	z-index: 2;
+	z-index: 3;
 	display: inline-flex;
 	flex-direction: row;
-	padding: 1rem;
 	background: rgba(0, 0, 0, 0.4);
+	align-items: center;
+	justify-content: space-between;
+}
+header > * {
+	margin: 1rem;
 }
 header > img {
 	width: 10vw;

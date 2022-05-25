@@ -8,6 +8,7 @@ search_btn 	= document.getElementById("search_btn");
 sort_btn 	= document.getElementById("sort_btn");
 nav_sort	= document.getElementById("nav-sort");
 options_sort 	= document.getElementById("options-sort");
+nav_btn		= document.getElementById("nav_btn");
 
 function openItem(name) {
 	cover.className = "";
@@ -38,11 +39,25 @@ searchbar.addEventListener("keypress", event => {
 });
 
 search_btn.addEventListener("click", event => {
-	search_href();
+	if (!searchbar.disabled)
+		search_href();
 });
 
 sort_btn.addEventListener("click", event => {
 	nav_sort.classList.toggle("active");
+});
+
+function goto(url) {
+	cover.className = "";
+	setTimeout(function() {
+		window.location.href = url;
+	}, 500);
+}
+
+nav_btn.addEventListener("click", event => {
+	nav_btn.classList.toggle("clicked");
+	document.getElementsByTagName("nav")[0].classList.toggle("clicked");
+	searchbar.disabled = !searchbar.disabled;
 });
 
 window.onload = function(){
