@@ -12,14 +12,14 @@
 		</div>
 		<span id="cover"></span>
 		<header>
-			<img src="../img/logo.png" onclick="javascript: href('/');">
+			<img src="../img/logo.png" onclick="javascript: href('/');" alt="logo">
 			<div id="searcharea">
 				<span id="categories-container">
 					<h4 id="categories">Categories</h4>
 				</span>
 				<input autocomplete="off" id="searchbar" placeholder="Search the world! And buy it all!">
-				<img id="search_btn" src="../img/search_black_24dp.svg">
-				<img id="sort_btn" src="../img/sort_black_24dp.svg">
+				<img id="search_btn" src="../img/search_black_24dp.svg" alt="search">
+				<img id="sort_btn" src="../img/sort_black_24dp.svg" alt="sort">
 			</div>
 		</header>
 		<nav id="nav-sort">
@@ -35,6 +35,7 @@
 			</ul>
 		</nav>
 		<main id="main-search">
+			<!-- image needs to be a background of a span in order to enable cropping as needed -->
 			<span onclick="javascript: openItem('yellow_car');">
 				<span class="img" style="background-image: url('../img/car.jpg');"></span>
 				<p>Nice car, a lot of power, 5 seats with a manual transmission</p>
