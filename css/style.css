@@ -373,9 +373,39 @@ header > img {
 	padding-left: 1rem;
 }
 #main-search.explore {
-	padding-left: 1rem;
+	padding-left: 10vw;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	padding-right: 0;
+	padding-left: 0;
+	overflow-y: scroll;
 }
-#main-search > article {
+#main-search.explore > * > section {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	overflow-x: scroll;
+	padding-right: 10vw;
+	padding-left: 10vw;
+	margin-bottom: 20px;
+}
+#main-search.explore > * > section > article {
+	height: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#main-search.explore h1 {
+	width: 100%;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.8);
+	padding-top: 1rem;
+}
+#main-search.explore > article > a {
+	color: rgba(0, 0, 0, 0.8);
+	margin-left: 10vw;
+}
+#main-search article:not(.container) {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -388,10 +418,10 @@ header > img {
 	transition: all 0.3s;
 	cursor: pointer;
 }
-#main-search > article:hover {
+#main-search article:hover:not(.container) {
 	transform: perspective(200px) translateZ(10px);
 }
-#main-search > article > figure {
+#main-search article > figure {
 	height: 80%;
 	min-height: 80%;
 	width: 100%;
@@ -399,7 +429,7 @@ header > img {
 	background-position: 50%;
 	background-repeat: no-repeat;
 }
-#main-search > article > p:not(:last-child) {
+#main-search article > p:not(:last-child) {
 	max-height: 20%;
 	font-weight: normal;
 	margin-top: 2.5%;
@@ -411,17 +441,17 @@ header > img {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-#main-search > article > p:last-child {
+#main-search article > p:last-child {
 	height: 5%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 }
-#main-search > article > p:last-child > mark:first-child {
+#main-search article > p:last-child > mark:first-child {
 	width: 50%;
 	text-align: left;
 }
-#main-search > article > p:last-child > mark:last-child {
+#main-search article > p:last-child > mark:last-child {
 	width: 50%;
 	text-align: right;
 	color: rgba(0, 0, 0, 0.7);
@@ -594,11 +624,6 @@ footer {
 	#main-search {
 		grid-template-columns: repeat(5, 1fr);
 		width: 90vw;
-	}
-	#main-search.explore {
-		padding-left: 10vw;
-		padding-right: 10vw;
-		width: 100vw;
 	}
 	#aside-sort {
 		display: block;
