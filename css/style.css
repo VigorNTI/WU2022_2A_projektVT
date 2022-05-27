@@ -278,8 +278,8 @@ header > img {
 	
 	display: grid;
 	grid-template-areas:	"img img"
-				"des des"
-				"dat dat";
+				"dat dat"
+				"des des";
 	grid-template-columns:	1fr 1fr;
 	grid-template-rows:	50vh auto auto;
 	grid-gap: 0.5rem 1rem;
