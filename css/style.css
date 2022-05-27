@@ -66,7 +66,7 @@ mark {
 	border-width: 2px;
 	border-color: black;
 	border-style: solid;
-	opacity = 1;
+	opacity: 1;
 	transition: all .4s;
 	-o-transition: all .4s;
 	-moz-transition: all .4s;
