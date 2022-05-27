@@ -4,24 +4,23 @@
 	<title>ViStore</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="../css/style.css">
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/charts.js"></script>
 	<body id="body">
-		</div>
 		<span id="cover"></span>
 		<nav id="nav">
-			<section>
-				<h1>Fast travel:</h1>
+			<div>
+				<mark>Fast travel:</mark>
 				<a onclick="javscript:goto('/')">Home</a>
 				<a onclick="javscript:goto('/search')">Search</a>
 				<a onclick="javscript:goto('/explore')">Explore</a>
-			</section>
+			</div>
 		</nav>
 		<header>
 			<img src="../img/logo.png" onclick="javascript: href('/');" alt="logo">
 			<div id="searcharea">
 				<span id="categories-container">
-					<p id="categories">Categories</p>
+					<a id="categories">Categories</a>
 				</span>
 				<input autocomplete="off" id="searchbar" placeholder="Search the world! And buy it all!">
 				<img id="search_btn" src="../img/search_black_24dp.svg" alt="search">
@@ -36,73 +35,72 @@
 			</div>
 		</header>
 		<main id="main-item">
-			<span class="container">
+			<div class="container">
 				<!-- Image needs to be set as background of a blank tag since img tag won't allow cropping, which we reqire -->
 				<figure class="img" style="background-image: url('../img/car.jpeg');"></figure>
 				<article id="data-container">
 					<h1 class="item-name">Yellow nice car - 300hp</h1>
-					<span class="section_heading">
+					<div class="section_heading">
 						<img src="../img/auto_graph_black_24dp.svg" alt="graph">
 						<h2 class="item-price">Price over time</h2>
-					</span>
-					<span class="price-chart-container">
+					</div>
+					<div class="price-chart-container">
 						<div id="curve_chart" style=""></div>
-					</span>
-					<span class="btn-container">
+					</div>
+					<div class="btn-container">
 						<a id="buy-btn" href="buy">Buy now for 300kr!</a>
-					</span>
+					</div>
 					<section class="shipping-container">
-						<span class="section_heading">
+						<div class="section_heading">
 							<img src="../img/local_shipping_black_24dp.svg" alt="shipping truck">
 							<h2>Shipping</h2>
-						</span>
-						<span>
+						</div>
+						<div>
 							<h2>20kr - DHL</h2>
 							<p>Estimated delivery: 2 mar 2022</p>
-						</span>
-						<span>
+						</div>
+						<div>
 							<h2>24kr - TR Shipping</h2>
 							<p>Estimated delivery: 3 mar 2022</p>
-						</span>
-						<span>
+						</div>
+						<div>
 							<h2>30kr - PostNord</h2>
 							<p>Estimated delivery: never</p>
-						</span>
-						<span>
+						</div>
 					</section>
 					<section class="payment-container">
-						<span class="section_heading">
+						<div class="section_heading">
 							<img src="../img/account_balance_wallet_black_24dp.svg" alt="wallet">
 							<h2>Payment</h2>
-						</span>
-						<span class="icons">
+						</div>
+						<div class="icons">
 							<img src="../img/VisaInc.svg" alt="visa">
 							<img src="../img/Mastercard.svg" alt="mastercard">
 							<img src="../img/Swish.svg" alt="swish">
 							<img src="../img/PayPal.svg" alt="paypal">
 							<img src="../img/GooglePay.svg" alt="google pay">
 							<img src="../img/ApplePay.svg" alt="apple pay">
-						</span>
+						</div>
 						<p><b>VigSafe©</b> - Safe payments <a href="https://vigsafe.com">Read more</a></p>
 					</section>
 					<section class="info-container">
-						<span class="section_heading">
+						<div class="section_heading">
 							<img src="../img/info_black_24dp.svg" alt="info">
 							<h2>Info</h2>
-						</span>
+						</div>
 						<h3>Vigor T</h3>
 						<p>Enskild firma från umeå.</p>
 					</section>
 				</article>
 				<section id="description-container">
-					<span class="section_heading">
+					<div class="section_heading">
 						<img src="../img/description_black_24dp.svg" alt="description form">
 						<h2>Description</h2>
-					</span>
+					</div>
 					<p>Nice car, a lot of power, 5 seats and with a manual transmission</p>
 				</section>
-			</span>
+			</div>
 		</main>
+		<script src="js/main.js"></script>
 	</body>
-	<script src="js/main.js"></script>
 </html>
