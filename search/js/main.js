@@ -6,7 +6,7 @@ cover 		= document.getElementById("cover");
 searchbar 	= document.getElementById("searchbar");
 search_btn 	= document.getElementById("search_btn");
 sort_btn 	= document.getElementById("sort_btn");
-nav_sort	= document.getElementById("nav-sort");
+nav_sort	= document.getElementById("aside-sort");
 options_sort 	= document.getElementById("options-sort");
 nav_btn		= document.getElementById("nav_btn");
 
